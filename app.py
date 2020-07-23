@@ -142,8 +142,8 @@ def home():
     	            stock3="not_available"
     	        quantity4=soup.find("div" ,{"class":"col-lg-8 pack-size"}).text
     	        print(quantity4)
-    	        return render_template("index.html",price=price,url1=url1,title=title,quantity=quantity,stock=stock,link2=link2,title1=title1,a=a,url3=url3,title3=title3,price3=price3,quantity3=quantity3,p=p,link=link,quantity4=quantity4,price4=price4,stock3=stock3,link5=link5)
-    	      return render_template("index.html")
+    	      return render_template("index.html",price=price,url1=url1,title=title,quantity=quantity,stock=stock,link2=link2,title1=title1,a=a,url3=url3,title3=title3,price3=price3,quantity3=quantity3,p=p,link=link,quantity4=quantity4,price4=price4,stock3=stock3,link5=link5)
+    	    return render_template("index.html")
 if __name__ == '__main__':
 	app.run(debug=True)
 	app.run()
