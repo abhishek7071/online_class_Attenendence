@@ -1,84 +1,61 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
+<html lang="en">                                          <head>                                                    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, i
+nitial-scale=1, shrink-to-fit=no">
+                                                            <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.boots
+trapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integ
+rity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBi
+FeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<style>                                                    h4 { font-size: 1.5em; color: black; text-decoration: none; border-bottom: 2px solid black;
+     padding: 20px;                                        }                                                       h4:hover { color: black; border-width: 3px; }
+   </style>                                             
 <style>
-   h4 { font-size: 1.5em; color: black; text-decoration: none; border-bottom: 2px solid black; 
-     padding: 20px;
-   } 
-   h4:hover { color: black; border-width: 3px; } 
-   </style>
-
-<style> 
-h5 { font-size: 1.5em; color: green; text-decoration: none;border-bottom: 2px solid black; 
-  padding: 20px;
-} 
-h5:hover { color: darkorange; border-width: 3px; } </style>
-
-
-    <title>| Medicine Price Compare App |</title>
-  </head>
-  <body style="background-color: rgb(3, 252, 232);">
-    <center>
-    <div class="container" style="background-color: rgb(3, 252, 232); padding: 10px;">
-      <h1>MedCompare</h1>
-    </div>
-    <div class="container" style="margin-top: 30px;">
-      <form action="/" method="post">
-        <input style="width: 100%;" type="text" name="medicine_name" class="form-control" placeholder="Enter your medicine name">
-        <input style="margin-top: 10px; padding-right: 20px; padding-left: 20px;" class="btn btn-primary" type="submit" name="submit" value="GET">
-      </form>
-    </div>
-   
-    <div class="container" style="margin-top: 20px;">
-      <div class="card" style="width: 24rem;">
-        <div class="card-body" style="text-align: left;">
-         
- <h5 style="text-align:center;"; border: 1px solid black;
- 
- >1Mg Search Results
- 
- </h5>
- <h6 style="color: rgb(0, 0, 255);" class="card-title">Medicine name :{{title}}</h6>
-<h6 style="color: rgb(0, 0, 255);" class="card-title"> price :{{price}}</h6>
-<h6 style="color: rgb(0, 0, 255);" class="card-title">Quantity :{{quantity}}</h6>
-<h6 style="color: rgb(0, 0, 255);" class="card-title">Stock :{{a}}</h6>
-<h6 style="color: rgb(0, 0, 255);" class="card-title">Link for order :{{link2}}</h6>
+h5 { font-size: 1.5em; color: green; text-decoration: none;border-bottom: 2px solid black;
+  padding: 20px;                                        }                                                       h5:hover { color: darkorange; border-width: 3px; } </style>  
+  
+  <title>| Medicine Price Compare App |</title>         </head>                                                 <body style="background-color: rgb(3, 252, 232);">        <center>                                                <div class="container" style="background-color: rgb(3, 252, 232); padding: 10px;">                                <h1>MediCompare</h1>                                   </div>                                                  <div class="container" style="margin-top: 30px;">         <form action="/" method="post">
+        <input style="width: 100%;" type="text" name="medicine_name" class="form-control" placeholder="Enter your medicine name">                                               <input style="margin-top: 10px; padding-right: 20px; padding-left: 20px;" class="btn btn-primary" type="submit" name="submit" value="GET">                            </form>                                               </div>                                                                                                          <div class="container" style="margin-top: 20px;">         <div class="card" style="width: 24rem;">
+<div class="card-body" style="text-align: left;">
+                                                         <h5 style="text-align:center;"; border: 1px solid black
+;
+                                                         >1Mg Search Results                                    
+ </h5>                                                   <h6 style="color: rgb(221,65,19);" class="card-title">Medicine name : <h7 style="color:tomato;">
+ {{title}}</h7> </h6>                            <h6 style="color: rgb(221,65,19);" class="card-title"> price :
+<h7 style="color:green;">
+ {{price}} </h7></h6>                                    <h6 style="color: rgb(221,65,19);" class="card-title">Quantity :<h7 style="color:blue;">
+ {{quantity}}</h7></h6>                               <h6 style="color: rgb(221,65,19);" class="card-title">Stock :<h7 style="color:maroon;">
+ {{a}} </h7></h6>                                         <h6 style="color: rgb(221,65,19);" class="card-title">Link for order :<a href="{{url1}}"
+>Click here </a></h6>
  <h4 style="text-align:center;"; border: 1px solid black;
+
+ >Pharmeasy Results                                     
+ </h4> 
  
- >Pharmeasy Results
- 
- </h4>
-<h6 style="color: rgb(255, 0, 0);" class="card-title">Medicine name :{{title1}}</h6>
-<h6 style="color: rgb(255, 0, 0);" class="card-title">Price:{{price1}}</h6>
-<h6 style="color: rgb(255, 0, 0);" class="card-title"> Quantity :{{quantity1}}</h6>
-<h6 style="color: rgb(255, 0, 0);" class="card-title">Stock :{{stock}}</h6>
-<h6 style="color: rgb(255, 0, 0);" class="card-title">Link for order :{{url3}}</h6>
- <h5 style="text-align:center;"; border: 1px solid black;
- 
- >Practo Search Results
- 
- </h5>
-<h6 style="color: rgb(0, 0,139);" class="card-title">Medicine name :{{title3}}</h6>
-<h6 style="color: rgb(0, 0, 139);" class="card-title"> price :{{price3}}</h6>
-<h6 style="color: rgb(0, 0, 139);" class="card-title">Quantity :{{quantity3}}</h6>
-<h6 style="color: rgb(0, 0, 139);" class="card-title">Stock :{{p}}</h6>
-<h6 style="color: rgb(0, 0, 139);" class="card-title">Link for order :{{link}}</h6>
-<h4 style="text-align:center;"; border: 1px solid black;
- 
- >Zoylo Search Results
- 
- </h4>
-<h6 style="color: rgb(0, 100, 0);" class="card-title">Medicine name :{{url1}}</h6>
-<h6 style="color: rgb(0, 100, 0);" class="card-title"> price :{{price4}}</h6>
-<h6 style="color: rgb(0, 100, 0);" class="card-title">Quantity :{{quantity4}}</h6>
-<h6 style="color: rgb(0, 100, 0);" class="card-title">Stock :{{stock3}}</h6>
-<h6 style="color: rgb(0, 100, 0);" class="card-title">Link for order :{{link5}}</h6>
-        </div>
-      </div>
-    </div>
+    <h6 style="color: rgb(0, 155, 119);" class="card-title">Medicine name : <h7 style="color:orange;">
+ {{title1}}</h7> </h6>                            <h6 style="color: rgb(0,155,119);" class="card-title"> price :
+<h7 style="color:darkblue;">
+ {{price1}} </h7></h6>                                    <h6 style="color: rgb(0,155, 119);" class="card-title">Quantity :<h7 style="color:limegreen;">
+ {{quantity1}}</h7></h6>                               <h6 style="color: rgb(0, 155, 119);" class="card-title">Stock :<h7 style="color:orangered;">
+ {{stock}} </h7></h6>                                         <h6 style="color: rgb(0, 155,119);" class="card-title">Link for order :<a href="{{url3}}"
+>Click here </a></h6>
+
+<h5 style="text-align:center;"; border: 1px solid black;                                                         >Practo Search Results                                                                                           </h5>                                       
+                            <h6 style="color: rgb(181,101,167);" class="card-title"> price :
+<h7 style="color:darkblue;">
+ {{price3}} </h7></h6>                                    <h6 style="color: rgb(181,101,167);" class="card-title">Quantity :<h7 style="color:orangered;">
+ {{quantity3}}</h7></h6>                               <h6 style="color: rgb(181,101,167);" class="card-title">Stock :<h7 style="color:green;">
+ {{p}} </h7></h6>                                         <h6 style="color: rgb(181,101,167);" class="card-title">Link for order :<a href="{{link5}}"
+>Click here </a></h6>
+
+<h4 style="text-align:center;"; border: 1px solid black;                                                         >Zoylo Search Results                                                                                           </h4>                                       
+
+    <h6 style="color: rgb(0, 0, 255);" class="card-title">Medicine name : <h7 style="color:orange;">
+ {{title4}}</h7> </h6>                            <h6 style="color: rgb(0, 0, 255);" class="card-title"> price :
+<h7 style="color:seagreen;">
+ {{price4}} </h7></h6>                                    <h6 style="color: rgb(0, 0, 255);" class="card-title">Quantity :<h7 style="color:orangered;">
+ {{quantity4}}</h7></h6>                               <h6 style="color: rgb(0, 0, 255);" class="card-title">Stock :<h7 style="color:limegreen;">
+ {{stock3}} </h7></h6>                                         <h6 style="color: rgb(0, 0, 255);" class="card-title">Link for order :<a href="{{link5}}"
+>Click here </a></h6>
+
+       </div>                                                </div>                                                </div>
