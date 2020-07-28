@@ -52,11 +52,9 @@ def home():
      		link4 = link['href']
      		break
      	else:
-     		link4="N/A"
-     	if link4=="N/A":
-     		quantity3="N/A"
-     		stock5="N/A"
-     		price3="N/A"
+     		link1="N/A"
+     	if link1=="N/A":
+     		print("N/A")
      	else:
      		quantity3=soup.find("div", {"class":"s4h2ti-3 RQtd"}).text
      		#price3=soup.find("div" , {"class": "s13j2pak-2 hfenSr"}).text
@@ -74,7 +72,7 @@ def home():
      		else:
      			price3="price_not_availble"
      		print(price3)
-     		link7="https://www.practo.com"+link4
+     		link5="https://www.practo.com"+str(link4)
      	link3="https://www.zoylo.com/medicines/catalogsearch/result/?q="+medicine_name
      	html_page = r.get(link3)
      	soup = BeautifulSoup(html_page.content,"html.parser")
@@ -126,15 +124,15 @@ def home():
      	    link = i.find('a',href=True)
      	    if link is None:
      	    	continue
-     	    link8 = link['href']
+     	    link2 = link['href']
      	    break
      	else:
-     		link8="N/A" 
-     	if link8=="N/A":
+     		link2="N/A" 
+     	if link2=="N/A":
      		price="N/A"
      	else:
      	  url3="https://pharmeasy.in"+link2
-     	  s=r.get(link2)
+     	  s=r.get(url3)
      	  soup1 = BeautifulSoup(s.text, 'html.parser')
      	  for i in soup1.find('div',{'class':'_3bwoY'}):
      	  			link = i.find('button',{'class':'_2FE4Z h1H8I _1JBjj notifyMeBtn'})
@@ -151,7 +149,7 @@ def home():
      	  title1= soup.find('h1',{'class':'ooufh'}).text
      	  quantity1= soup.find('div',{'class':'_36aef'}).text
      	  price1=soup1.find("div" , {"class":"_1_yM9"}).text
-     	  return render_template("flask_weather_app.html",link2=url1,quantity=quantity,title=title,a=a,title1=title1,price1=price1,url1=url1,url3=url3,quantity3=quantity3,p=stock5,link=link3,stock=stock,link5=link7,price=price,quantity1=quantity1,price3=price3,link6=link6,price4=price4,quantity4=quantity4,title4=title4,stock3=stock3)
+     	  return render_template("flask_weather_app.html",link2=url1,quantity=quantity,title=title,a=a,title1=title1,price1=price1,url1=url1,url3=url3,quantity3=quantity3,p=stock5,link=link3,stock=stock,link5=link5,price=price,quantity1=quantity1,price3=price3,link6=link6,price4=price4,quantity4=quantity4,title4=title4)
      return render_template("flask_weather_app.html")
 if __name__ == '__main__':
   app.run(debug=True)
