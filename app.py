@@ -25,7 +25,7 @@ def index():
   image = Image.open("image.png") 
   files=['image.png']
   for f in files:
-    shutil.move(f, 'static')
+    shutil.copy(f, 'static')
   return render_template('home.html')
 if __name__ == '__main__':
   app.run(debug=True)
