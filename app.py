@@ -22,12 +22,17 @@ def index():
   web.get("https://web.whatsapp.com/")
   web.implicitly_wait(50)
   web.save_screenshot("image.png")
+  web.find_element_by_xpath('//*[@id="side"]/header/div[2]/div/span/div[2]/div').click()
+  web.implicitly_wait(50)
+  web.find_element_by_xpath('//*[@id="app"]/div/div/div[2]/div[1]/span/div/span/div/div[1]/div/label/div/div[2]').send_keys("Rahul Vya 2")
+  web.find_element_by_xpath('//*[@id="app"]/div/div/div[2]/div[1]/span/div/span/div/div[2]/div[1]/div/div/div[2]/div/div/div[2]/div[1]/div/span').click()
+time.sleep(3)
   image = Image.open("image.png") 
   files=['image.png']
   web.quit()
   for f in files:
     shutil.copy(f, 'static')
-  return render_template('home.html')
+  return render_template('home.html' )
 if __name__ == '__main__':
   app.run(debug=True)
   app.run()
