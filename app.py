@@ -6,6 +6,7 @@ import os
 from PIL import Image
 import time
 from PIL import Image 
+import schedule
 import sys
 from flask import Flask, render_template
 
@@ -24,6 +25,7 @@ def index():
   web.save_screenshot("image.png")
   image = Image.open("image.png") 
   files=['image.png']
+  web.quit()
   for f in files:
     shutil.copy(f, 'static')
   return render_template('home.html')
