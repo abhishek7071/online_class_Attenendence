@@ -6,7 +6,6 @@ import os
 from PIL import Image
 import time
 from PIL import Image 
-import schedule
 import sys
 from flask import Flask, render_template
 
