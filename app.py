@@ -26,7 +26,7 @@ def index():
   web.implicitly_wait(50)
   web.find_element_by_xpath('//*[@id="app"]/div/div/div[2]/div[1]/span/div/span/div/div[1]/div/label/div/div[2]').send_keys("Rahul Vya 2")
   web.find_element_by_xpath('//*[@id="app"]/div/div/div[2]/div[1]/span/div/span/div/div[2]/div[1]/div/div/div[2]/div/div/div[2]/div[1]/div/span').click()
-time.sleep(3)
+#time.sleep(3)
   image = Image.open("image.png") 
   files=['image.png']
   web.quit()
