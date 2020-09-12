@@ -26,7 +26,7 @@ def index():
   files=['image.png']
   for f in files:
     shutil.move(f, 'static')
-  return render_template('home.html', imageList=imageList )
+  return render_template('home.html', imageList=files )
 if __name__ == '__main__':
   app.run(debug=True)
   app.run()
