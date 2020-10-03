@@ -62,7 +62,7 @@ def index():
     f= open("a.txt","w+")
     f.write(attend)
     driver.save_screenshot("image.png")
-    web.maximize_window()
+    #web.maximize_window()
     img_data = open('image.png','rb').read()
     msg = MIMEMultipart()
     msg['Subject'] = 'subject'
