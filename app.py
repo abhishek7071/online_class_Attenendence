@@ -24,9 +24,7 @@ from email.mime.multipart import MIMEMultipart
 
 
 app = Flask(__name__)
-
-
-@app.route('/')
+@app.route("/", methods=['GET','POST'])
 def index():
   if request.method == 'POST':
     url= request.form.get('medicine_name')
