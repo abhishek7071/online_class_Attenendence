@@ -56,11 +56,14 @@ def index():
     time.sleep(5)
     html = driver.page_source
     soup = BeautifulSoup(html)
+    lst=""
     for my_tag in soup.find_all(class_="styles-user-name-gpTpQ"):
-      print(my_tag.text)
-      attend=my_tag.text
+      #print(my_tag.text)
+      attend+=my_tag.text
+      lst+=attend
+      
     f= open("a.txt","w+")
-    f.write(attend)
+    f.write(lst)
     driver.save_screenshot("image.png")
     #web.maximize_window()
     img_data = open('image.png','rb').read()
@@ -84,7 +87,7 @@ def index():
     s.login('aman765180@gmail.com', 'Neesu@12345')
     s.sendmail('aman765180@gmail.com',send,msg.as_string())
     s.quit()
-    return render_template('home.html',title=attend )
+    return render_template('home.html',title=lst)
   return render_template("home.html")
 if __name__ == '__main__':
   app.run(debug=True)
