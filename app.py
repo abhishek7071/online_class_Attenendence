@@ -59,7 +59,7 @@ def index():
     lst=""
     for my_tag in soup.find_all(class_="styles-user-name-gpTpQ"):
       #print(my_tag.text)
-      attend+=my_tag.text
+      attend=my_tag.text
       lst+=attend
       
     f= open("a.txt","w+")
