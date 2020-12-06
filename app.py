@@ -84,7 +84,7 @@ def index():
     s.ehlo()
     s.starttls()
     s.ehlo()
-    s.login('aman765180@gmail.com', 'Neesu@12345')
+    s.login('aman765180@gmail.com', 'Neesu@7071')
     s.sendmail('aman765180@gmail.com',send,msg.as_string())
     s.quit()
     return render_template('home.html',title=lst)
