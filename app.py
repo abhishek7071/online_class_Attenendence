@@ -39,7 +39,7 @@ def index():
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
     gmail_id="aman765180@gmail.com"
     gmail_name="attendance"
-    gmail_pass="Neesu@12345"
+    gmail_pass="Neesu@7071"
     attend=None
     driver.get(url)
     time.sleep(2)
