@@ -38,7 +38,7 @@ def get_tasks():
   cur = mysql.connection.cursor()
   cur.execute("SELECT * FROM Class")
   tasks_table=cur.fetchall()
-  return render_template("tasks.html", tasks=tasks_table)
+  return render_template("tasks.html", Class=tasks_table)
 @app.route('/add_task')
 def add_task():
   cur = mysql.connection.cursor()
