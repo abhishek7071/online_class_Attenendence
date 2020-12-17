@@ -1,0 +1,6 @@
+{% extends 'base.html' %} {% block content %}           <div class="row">                                       <ul class="collapsible" data-collapsible="accordion">
+  {% for c in Class%}                                     <li>                                                      <div class="collapsible-header">                          <div class="col s3">                                      <i class="material-icons">expand_more</i>                                                                       <a href="{{url_for('edit_task')}}">Take Attendence</a>                                                        </div>                                                  <div class="task_header col s9">
+              <h6>{{c.0}}</h6>
+      </div>
+    </div>                                                                                                        </li>                                                   {% endfor %}
+</u>                                                     </div>                                                 {% endblock %}
