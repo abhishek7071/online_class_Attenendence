@@ -1,11 +1,9 @@
 import os
 from flask import Flask, render_template, flash, redirect, request, url_for
-from bson.objectid import ObjectId
 from datetime import datetime
 now = datetime.now()
 from flask_mysqldb import MySQL
 import requests
-import secrets
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 #import os
