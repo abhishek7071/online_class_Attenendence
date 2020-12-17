@@ -1,3 +1,11 @@
+import os
+from flask import Flask, render_template, flash, redirect, request, url_for
+from bson.objectid import ObjectId
+from datetime import datetime
+now = datetime.now()
+from flask_mysqldb import MySQL
+import requests
+import secrets
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 #import os
@@ -18,17 +26,36 @@ from PIL import Image
 import os
 import smtplib
 from time import sleep
-from email.mime.text import MIMEText
-from email.mime.image import MIMEImage
-from email.mime.multipart import MIMEMultipart
-
 
 app = Flask(__name__)
+app.secret_key = 'gryg56hjfejjffd7i'                    
+app.config['MYSQL_HOST'] = 'remotemysql.com'
+app.config['MYSQL_USER'] = '2AaJAJad6N'
+app.config['MYSQL_PASSWORD'] = 'ev2z8wK0e8'
+app.config['MYSQL_DB'] = '2AaJAJad6N'                   
+mysql = MySQL(app)
+@app.route('/')
+@app.route('/get_tasks')
+def get_tasks():
+  cur = mysql.connection.cursor()
+  cur.execute("SELECT * FROM Class")
+  tasks_table=cur.fetchall()
+  return render_template("tasks.html", tasks=tasks_table)
+@app.route('/add_task')
+def add_task():
+  cur = mysql.connection.cursor()
+  cur.execute("SELECT * FROM Class")
+  tasks_table = cur.fetchall()
+  return render_template("addtask.html",Class=tasks_table)
 @app.route("/", methods=['GET','POST'])
-def index():
+def edit_task():
   if request.method == 'POST':
+    flash("Attendence taken Successfully")
     url= request.form.get('medicine_name')
-    send= request.form.get('medicine_namee')
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM Class")
+    t = cur.fetchall()
+    ca=request.form.get('category_name')
     chrome_options = Options()
     options = Options()
     chrome_options = webdriver.ChromeOptions()
@@ -36,7 +63,7 @@ def index():
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--disable-dev-shm-usage")
     chrome_options.add_argument("--no-sandbox")
-    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=chrome_options)
     gmail_id="aman765180@gmail.com"
     gmail_name="attendance"
     gmail_pass="Neesu@7071"
@@ -58,37 +85,33 @@ def index():
     soup = BeautifulSoup(html)
     lst=""
     for my_tag in soup.find_all(class_="styles-user-name-gpTpQ"):
-      #print(my_tag.text)
       attend=my_tag.text
       lst+=attend
-      
-    f= open("a.txt","w+")
-    f.write(lst)
-    driver.save_screenshot("image.png")
-    #web.maximize_window()
-    img_data = open('image.png','rb').read()
-    msg = MIMEMultipart()
-    msg['Subject'] = 'subject'
-    msg['From'] = 'aman765180@gmail.com'
-    msg['To'] = send
-    filename = "a.txt"
-    f = open(filename)
-    attachment = MIMEText(f.read())
-    attachment.add_header('Content-Disposition', 'attachment', filename=filename)
-    msg.attach(attachment)
-    text = MIMEText("test")
-    msg.attach(text)
-    image = MIMEImage(img_data,'png')
-    msg.attach(image)
-    s = smtplib.SMTP('smtp.gmail.com',587)
-    s.ehlo()
-    s.starttls()
-    s.ehlo()
-    s.login('aman765180@gmail.com', 'Neesu@7071')
-    s.sendmail('aman765180@gmail.com',send,msg.as_string())
-    s.quit()
-    return render_template('home.html',title=lst)
-  return render_template("home.html")
+    l=cur.excute("SELECT sroll FROM Class where Class_name=%s",(ca))
+    ll=int(l)
+    u=cur.excute("SELECT eroll FROM Class where Class_name=%s",(ca))
+    uu=int(u)
+    pr=1
+    aa=0
+    for lst in range(ll, uu + 1):
+      nums=str(num)
+      if nums in test_str:
+        cur.execute("INSERT INTO Attendence (Class_name,Rollno , Attendence) VALUES (%s, %s, %s)", (ca, nums, pr))
+        print(nums,'present')
+      else:
+        cur.execute("INSERT INTO Attendence (Class_name, Rollno, Attendence) VALUES (%s, %s, %s)", (ca,nums, aa))
+        mysql.connection.commit()
+        print(nums,'absent')
+    return render_template('edittask.html', Class=t)
+  
+@app.route('/insert_task', methods=['POST'])
+def insert_task():
+  title=request.form.get('task_name')
+  rl=request.form.get('task_name1')
+  rl1=request.form.get('task_name2')
+  cur = mysql.connection.cursor()
+  cur.execute("INSERT INTO Class(Class_name,sroll,eroll) VALUES(%s,%s,%s)", [title,rl,rl1])
+  mysql.connection.commit()
+  return redirect(url_for('get_tasks'))                 
 if __name__ == '__main__':
   app.run(debug=True)
-  app.run()
