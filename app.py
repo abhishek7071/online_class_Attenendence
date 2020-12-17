@@ -45,7 +45,7 @@ def add_task():
   cur.execute("SELECT * FROM Class")
   tasks_table = cur.fetchall()
   return render_template("addtask.html",Class=tasks_table)
-@app.route("/", methods=['GET','POST'])
+@app.route("/edit_task", methods=['GET','POST'])
 def edit_task():
   if request.method == 'POST':
     flash("Attendence taken Successfully")
