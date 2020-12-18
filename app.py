@@ -101,6 +101,9 @@ def edit_task():
         mysql.connection.commit()
         print(nums,'absent')
     return render_template('edittask.html', Class=t)
+    
+  return render_template('edittask.html', Class=t)
+  
   
 @app.route('/insert_task', methods=['POST'])
 def insert_task():
