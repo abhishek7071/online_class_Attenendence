@@ -32,7 +32,7 @@ app.config['MYSQL_USER'] = '2AaJAJad6N'
 app.config['MYSQL_PASSWORD'] = 'ev2z8wK0e8'
 app.config['MYSQL_DB'] = '2AaJAJad6N'                   
 mysql = MySQL(app)
-@app.route('/')
+#@app.route('/')
 @app.route('/get_tasks')
 def get_tasks():
   cur = mysql.connection.cursor()
