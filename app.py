@@ -45,7 +45,7 @@ def add_task():
   cur.execute("SELECT * FROM Class")
   tasks_table = cur.fetchall()
   return render_template("addtask.html",Class=tasks_table)
-@app.route("/edit_task", methods=['GET','POST'])
+@app.route("/edit_task1", methods=['GET','POST'])
 def edit_task():
   url= request.form.get('task_name')
   cur = mysql.connection.cursor()
@@ -102,7 +102,12 @@ def edit_task():
     
   return render_template('edittask.html', Class=t)
   
-  
+@app.route('/edit_task')
+def edit_task():
+  cur = mysql.connection.cursor()
+  cur.execute("SELECT * FROM Class")
+  t = cur.fetchall()
+  return render_template('edittask.html', Class=t)
 @app.route('/insert_task', methods=['POST'])
 def insert_task():
   title=request.form.get('task_name')
