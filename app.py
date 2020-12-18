@@ -49,7 +49,7 @@ def add_task():
 def edit_task():
   if request.method == 'POST':
     flash("Attendence taken Successfully")
-    url= request.form.get('medicine_name')
+    url= request.form.get('task_name')
     cur = mysql.connection.cursor()
     cur.execute("SELECT * FROM Class")
     t = cur.fetchall()
