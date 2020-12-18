@@ -102,7 +102,7 @@ def edit_task():
         print(nums,'absent')
     return render_template('edittask.html', Class=t)
     
-  return render_template('edittask.html', Class=t)
+  return render_template('edittask.html')
   
   
 @app.route('/insert_task', methods=['POST'])
