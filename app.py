@@ -100,7 +100,7 @@ def edit_task():
       print(nums,'absent')
     #return render_template('edittask.html', Class=t)
     
-  return render_template('edittask.html', Class=t)
+  return redirect(url_for('get_tasks'))
   
 @app.route('/edit_task')
 def edit_task():
