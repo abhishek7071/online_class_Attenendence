@@ -52,6 +52,7 @@ def edit_taskk():
   cur.execute("SELECT * FROM Class")
   t = cur.fetchall()
   ca=request.form.get('category_name')
+  print(ca)
   chrome_options = Options()
   options = Options()
   chrome_options = webdriver.ChromeOptions()
