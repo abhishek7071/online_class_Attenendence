@@ -84,10 +84,13 @@ def edit_taskk():
   for my_tag in soup.find_all(class_="styles-user-name-gpTpQ"):
     attend=my_tag.text
     lst+=attend
+  print(lst)
   l=cur.execute("SELECT sroll FROM Class where Class_name=%s",[ca])
+  print(l)
   ll=int(l)
   u=cur.execute("SELECT eroll FROM Class where Class_name=%s",[ca])
   uu=int(u)
+  print(uu)
   pr=1
   aa=0
   num=""
