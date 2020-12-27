@@ -51,7 +51,7 @@ def edit_taskk():
   cur = mysql.connection.cursor()
   cur.execute("SELECT * FROM Class")
   t = cur.fetchall()
-  ca=request.form('category')
+  ca=request.form['category']
   print(ca)
   chrome_options = Options()
   options = Options()
