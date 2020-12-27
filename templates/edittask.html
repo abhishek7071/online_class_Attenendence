@@ -1,5 +1,5 @@
 {% extends 'base.html' %}                               {% block content %}                                                                                             <h3>Take Attendance</h3>                                <div class="row">                               <div class="row">                                                                       <div class="input-field col s12">                                                                                       <i class="material-icons prefix">poll</i>
-                                <select id="category" name="category-name">                                           <option value="" disabled selected>Choose Class</option>                                                     {% for Class_nam in Class %}
+                                <select id="category" name="category">                                           <option value="" disabled selected>Choose Class</option>                                                     {% for Class_nam in Class %}
    <option value="{{Class_nam.0}}">{{Class_nam.0}}</opti
 on>                                                        {% endfor %}                                             </select>
                                 <label>Attendance category</label>
