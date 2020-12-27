@@ -32,7 +32,7 @@ app.config['MYSQL_USER'] = '2AaJAJad6N'
 app.config['MYSQL_PASSWORD'] = 'ev2z8wK0e8'
 app.config['MYSQL_DB'] = '2AaJAJad6N'                   
 mysql = MySQL(app)
-#@app.route('/')
+@app.route('/')
 @app.route('/get_tasks')
 def get_tasks():
   cur = mysql.connection.cursor()
@@ -45,8 +45,8 @@ def add_task():
   cur.execute("SELECT * FROM Class")
   tasks_table = cur.fetchall()
   return render_template("addtask.html",Class=tasks_table)
-@app.route("/edit_task1", methods=['GET','POST'])
-def edit_task1():
+@app.route("/edit_taskk", methods=['GET','POST'])
+def edit_taskk():
   url= request.form.get('task_name')
   cur = mysql.connection.cursor()
   cur.execute("SELECT * FROM Class")
