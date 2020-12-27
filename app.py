@@ -46,7 +46,7 @@ def add_task():
   tasks_table = cur.fetchall()
   return render_template("addtask.html",Class=tasks_table)
 @app.route("/edit_task1", methods=['GET','POST'])
-def edit_task():
+def edit_task1():
   url= request.form.get('task_name')
   cur = mysql.connection.cursor()
   cur.execute("SELECT * FROM Class")
