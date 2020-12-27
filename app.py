@@ -90,8 +90,9 @@ def edit_taskk():
   uu=int(u)
   pr=1
   aa=0
-  for lst in range(ll, uu + 1):
-    nums=str(lst)
+  num=""
+  for num in range(ll, uu + 1):
+    nums=str(num)
     if nums in lst:
       cur.execute("INSERT INTO Attendence (Class_name,Rollno , Attendence) VALUES (%s, %s, %s)", (ca, nums, pr))
       print(nums,'present')
