@@ -92,7 +92,8 @@ def edit_taskk():
   print(res)
   ll=int(l)
   cur.execute("SELECT eroll FROM Class where Class_name=%s",[ca])
-  u=cur.fetchall()
+  u=cur.fetchone()
+  u=u[0]
   res1 = str(u)[3:-5]
   uu=int(u)
   print(uu)
