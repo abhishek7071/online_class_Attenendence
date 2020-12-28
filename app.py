@@ -87,10 +87,12 @@ def edit_taskk():
   print(lst)
   cur.execute("SELECT sroll FROM Class where Class_name=%s",[ca])
   l=cur.fetchall()
-  print(l)
+  res = str(l)[3:-5] 
+  print(res)
   ll=int(l)
   cur.execute("SELECT eroll FROM Class where Class_name=%s",[ca])
   u=cur.fetchall()
+  res1 = str(u)[3:-5]
   uu=int(u)
   print(uu)
   pr=1
