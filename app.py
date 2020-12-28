@@ -86,7 +86,8 @@ def edit_taskk():
     lst+=attend
   print(lst)
   cur.execute("SELECT sroll FROM Class where Class_name=%s",[ca])
-  l=cur.fetchall()
+  l=cur.fetchone()
+  l=l[0]
   res = str(l)[3:-5] 
   print(res)
   ll=int(l)
