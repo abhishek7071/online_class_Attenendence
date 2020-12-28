@@ -85,10 +85,12 @@ def edit_taskk():
     attend=my_tag.text
     lst+=attend
   print(lst)
-  l=cur.execute("SELECT sroll FROM Class where Class_name=%s",[ca])
+  cur.execute("SELECT sroll FROM Class where Class_name=%s",[ca])
+  l=cur.fetchall()
   print(l)
   ll=int(l)
-  u=cur.execute("SELECT eroll FROM Class where Class_name=%s",[ca])
+  cur.execute("SELECT eroll FROM Class where Class_name=%s",[ca])
+  u=cur.fetchall()
   uu=int(u)
   print(uu)
   pr=1
