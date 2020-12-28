@@ -115,7 +115,7 @@ def edit_task():
   return render_template('edittask.html', Class=t)
 @app.route('/insert_task', methods=['POST'])
 def insert_task():
-  title=request.form.get('task_name')
+  title=request.form.get('task_namee')
   print(title)
   rl=request.form.get('task_name1')
   rl1=request.form.get('task_name2')
