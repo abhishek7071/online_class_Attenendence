@@ -112,7 +112,13 @@ def edit_taskk():
     #return render_template('edittask.html', Class=t)
     
   return redirect(url_for('get_tasks'))
-  
+ 
+@app.route('/showw')
+def showw():
+  cur=mysql.connection.cursor()
+  cur.execute("SELECT * FROM Attendence")
+  tt=cur.fetchall()
+  return render_template('showw.html',det=tt)
 @app.route('/edit_task')
 def edit_task():
   cur = mysql.connection.cursor()
