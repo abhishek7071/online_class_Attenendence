@@ -119,7 +119,7 @@ def insert_task():
   rl=request.form.get('task_name1')
   rl1=request.form.get('task_name2')
   cur = mysql.connection.cursor()
-  cur.execute("INSERT INTO Class(Class_name,sroll,eroll) VALUES(%s,%s,%s)", (title,rl,rl1))
+  cur.execute("INSERT INTO Class(Class_name,sroll,eroll) VALUES(%s,%s,%s)", [title,rl,rl1])
   mysql.connection.commit()
   return redirect(url_for('get_tasks'))                 
 if __name__ == '__main__':
