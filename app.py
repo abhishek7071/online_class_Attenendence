@@ -116,6 +116,7 @@ def edit_task():
 @app.route('/insert_task', methods=['POST'])
 def insert_task():
   title=request.form.get('task_name')
+  print(title)
   rl=request.form.get('task_name1')
   rl1=request.form.get('task_name2')
   cur = mysql.connection.cursor()
