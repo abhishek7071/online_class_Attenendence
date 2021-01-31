@@ -119,7 +119,7 @@ def showw():
   print(RollNo)
   cl=request.form.get('task_name1')
   cur = mysql.connection.cursor()
-  cur.execute("SELECT * FROM Attendence where (RollNo=%s AND Class_Name=%s)",(RollNo,ca))
+  cur.execute("SELECT * FROM Attendence where (RollNo=%s AND Class_Name=%s)",(RollNo,cl))
   mysql.connection.commit()
   tt=cur.fetchall()
   return render_template('attend.html')
