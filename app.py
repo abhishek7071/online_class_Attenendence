@@ -133,9 +133,9 @@ def res():
   cl=request.form.get('task_name1')
   cur = mysql.connection.cursor()
   cur.execute("SELECT * FROM Attendence where (RollNo=%s AND Class_Name=%s)",(RollNo,cl))
-  total=cur.execute("SELECT COUNT(*) FROM Attendence  WHERE (Rollno=%s AND Class_name=%s)",(Rollno,cl))
+  total=cur.execute("SELECT COUNT(*) FROM Attendence  WHERE (Rollno=%s AND Class_name=%s)",(RollNo,cl))
   total=cur.fetchone()
-  p=cur.execute("SELECT COUNT(*) FROM Attendence WHERE (Attendence=%s AND Rollno=%s AND Class_name=%s)",(a,rl,ca))
+  p=cur.execute("SELECT COUNT(*) FROM Attendence WHERE (Attendence=%s AND Rollno=%s AND Class_name=%s)",(a,RollNo,cl))
   p=cur.fetchone()
   q=p[0]
   q=int(q)
