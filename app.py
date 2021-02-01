@@ -64,7 +64,7 @@ def edit_taskk():
   driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=chrome_options)
   gmail_id="aman765180@gmail.com"
   gmail_name="attendance"
-  gmail_pass="Neesu@7071"
+  gmail_pass="Njjhhj"
   attend=None
   driver.get(url)
   time.sleep(2)
