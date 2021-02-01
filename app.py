@@ -135,7 +135,7 @@ def showw():
     mysql.connection.commit()
     tt=cur.fetchall()
     return render_template('attend.html',det=tt)
-  #return redirect(url_for('result'))                 
+  return redirect(url_for('showw'))                 
 @app.route('/edit_task')
 def edit_task():
   cur = mysql.connection.cursor()
