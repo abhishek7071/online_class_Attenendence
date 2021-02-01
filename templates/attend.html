@@ -23,4 +23,34 @@ waves-light" type="submit" name="action">Submit          <i class="material-icon
 </div>
   
     <div class="container">
+
+<table>
+  <br>
+  <h5>Total Class-</h5>
+   <h5>Present-</h5>
+  <h5>Percentage-</h5>
+  </br>
+      
+  <thead>
+    <tr>
+      <th scope="col">Class-Name</th>
+      <th scope="col">Roll-No</th>
+      <th scope="col">Date</th>
+      <th scope="col">Attendence</th>
+ 
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      {% for row in det %}
+                <tr>
+                    <td>{{row.0}}</td>
+                    <td>{{row.1}}</td>
+                    <td>{{row.2}}</td>
+                    <td>{{row.3}}</td>
+
+    </tr>
+    
+  </tbody>
+</table>
       {% endblock %}
