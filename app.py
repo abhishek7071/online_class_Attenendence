@@ -112,13 +112,13 @@ def edit_taskk():
     #return render_template('edittask.html', Class=t)
     
   return redirect(url_for('get_tasks'))
-@app.route('/showw')
-def result():
-  cur = mysql.connection.cursor()
-  cur.execute("SELECT * FROM Attendence where (RollNo=%s AND Class_Name=%s)",(RollNo,cl))
-  mysql.connection.commit()
-  tt=cur.fetchall()
-  return render_template('showw.html',det=tt)
+#@app.route('/showw')
+#def result():
+#  cur = mysql.connection.cursor()
+#  cur.execute("SELECT * FROM Attendence where (RollNo=%s AND Class_Name=%s)",(RollNo,cl))
+#  mysql.connection.commit()
+#  tt=cur.fetchall()
+#  return render_template('showw.html',det=tt)
   
 @app.route('/showw')
 def showw():
@@ -130,8 +130,8 @@ def showw():
     cur.execute("SELECT * FROM Attendence where (RollNo=%s AND Class_Name=%s)",(RollNo,cl))
     mysql.connection.commit()
     tt=cur.fetchall()
-    return render_template('attend.html')
-  return redirect(url_for('result'))                 
+    return render_template('showw.html',det=tt)
+  #return redirect(url_for('result'))                 
 @app.route('/edit_task')
 def edit_task():
   cur = mysql.connection.cursor()
