@@ -1,7 +1,7 @@
 import os
 from flask import Flask, render_template, flash, redirect, request, url_for
-from datetime import datetime
-now = datetime.now()
+from datetime import date
+now = date.today()
 from flask_mysqldb import MySQL
 import requests
 from selenium import webdriver
@@ -103,10 +103,10 @@ def edit_taskk():
   for num in range(ll, uu + 1):
     nums=str(num)
     if nums in lst:
-      cur.execute("INSERT INTO Attendence (Class_name,Rollno , Attendence,date) VALUES (%s, %s, %s,%s)", (ca, nums, pr,NOW()))
+      cur.execute("INSERT INTO Attendence (Class_name,Rollno , Attendence,date) VALUES (%s, %s, %s,%s)", (ca, nums, pr,now))
       print(nums,'present')
     else:
-      cur.execute("INSERT INTO Attendence (Class_name, Rollno, Attendence,date) VALUES (%s, %s, %s)", (ca,nums, aa,NOW()))
+      cur.execute("INSERT INTO Attendence (Class_name, Rollno, Attendence,date) VALUES (%s, %s, %s)", (ca,nums, aa,now))
       mysql.connection.commit()
       print(nums,'absent')
     #return render_template('edittask.html', Class=t)
@@ -146,7 +146,7 @@ def res():
   print(per)
   mysql.connection.commit()
   tt=cur.fetchall()
-  return render_template("attend.html",det=tt)
+  return render_template("attend.html",det=tt,per=per,q=q,t=t)
   #return redirect(url_for('showw'))                 
 @app.route('/edit_task')
 def edit_task():
