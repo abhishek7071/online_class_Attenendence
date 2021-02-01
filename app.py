@@ -133,7 +133,7 @@ def showw():
   cur.execute("SELECT * FROM Attendence where (RollNo=%s AND Class_Name=%s)",(RollNo,cl))
   mysql.connection.commit()
   tt=cur.fetchall()
-  return render_template('attend.html',det=tt)
+  return render_template("attend.html",det=tt)
   #return redirect(url_for('showw'))                 
 @app.route('/edit_task')
 def edit_task():
