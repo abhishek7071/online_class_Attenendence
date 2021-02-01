@@ -148,7 +148,7 @@ def res():
   else:
     per=q*100/t
   print(per)
-  mysql.connection.commit()
+  #mysql.connection.commit()
   tt=cur.fetchall()
   return render_template("attend.html",det=tt,per=per,q=q,t=t)
   #return redirect(url_for('showw'))                 
