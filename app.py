@@ -107,7 +107,7 @@ def edit_taskk():
       cur.execute("INSERT INTO Attendence (Class_name,Rollno , Attendence,date) VALUES (%s, %s, %s,%s)", (ca, nums, pr,now))
       print(nums,'present')
     else:
-      cur.execute("INSERT INTO Attendence (Class_name, Rollno, Attendence,date) VALUES (%s, %s, %s)", (ca,nums, aa,now))
+      cur.execute("INSERT INTO Attendence (Class_name, Rollno, Attendence,date) VALUES (%s, %s, %s,%s)", (ca,nums, aa,now))
       mysql.connection.commit()
       print(nums,'absent')
     #return render_template('edittask.html', Class=t)
