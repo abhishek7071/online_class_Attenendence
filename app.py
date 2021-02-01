@@ -115,15 +115,16 @@ def edit_taskk():
  
 @app.route('/showw')
 def showw():
-  RollNo=request.form.get('RollNo')
-  print(RollNo)
-  cl=request.form.get('task_name1')
-  cur = mysql.connection.cursor()
-  cur.execute("SELECT * FROM Attendence where (RollNo=%s AND Class_Name=%s)",(RollNo,cl))
-  mysql.connection.commit()
-  tt=cur.fetchall()
-  return render_template('attend.html')
-#return redirect('showw.html',dett=tt)     
+  if request.method == "POST":
+    RollNo=request.form.get('RollNo')
+    print(RollNo)
+    cl=request.form.get('task_name1')
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM Attendence where (RollNo=%s AND Class_Name=%s)",(RollNo,cl))
+    mysql.connection.commit()
+    tt=cur.fetchall()
+    return render_template('attend.html')
+  return redirect('showw.html',dett=tt)     
 @app.route('/edit_task')
 def edit_task():
   cur = mysql.connection.cursor()
