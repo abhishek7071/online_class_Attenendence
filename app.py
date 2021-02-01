@@ -112,7 +112,7 @@ def edit_taskk():
     #return render_template('edittask.html', Class=t)
     
   return redirect(url_for('get_tasks'))
-@app.route('/result')
+@app.route('/showw')
 def result():
   #cur = mysql.connection.cursor()
   #cur.execute("SELECT * FROM Attendence where (RollNo=%s AND Class_Name=%s)",(RollNo,cl))
