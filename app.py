@@ -2,7 +2,7 @@ import os
 from flask import Flask, render_template, flash, redirect, request, url_for
 from datetime import date
 now = date.today()
-Now=str(now)
+now=str(now)
 from flask_mysqldb import MySQL
 import requests
 from selenium import webdriver
