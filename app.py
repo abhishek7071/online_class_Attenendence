@@ -124,7 +124,7 @@ def edit_taskk():
   #tt=cur.fetchall()
   #return render_template('attend.html')
   
-@app.route('/showw', methods=['POST']))
+@app.route('/showw', methods=['POST'])
 def showw():
   RollNo=request.form.get('RollNo')
   print(RollNo)
