@@ -123,7 +123,7 @@ def showw():
   mysql.connection.commit()
   tt=cur.fetchall()
   return render_template('attend.html')
-  return redirect('showw.html',dett=tt)     
+ return redirect('showw.html',dett=tt)     
 @app.route('/edit_task')
 def edit_task():
   cur = mysql.connection.cursor()
