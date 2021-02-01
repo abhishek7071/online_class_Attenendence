@@ -97,16 +97,16 @@ def edit_taskk():
   res1 = str(u)[3:-5]
   uu=int(u)
   print(uu)
-  pr=1
-  aa=0
+  pr="present"
+  aa="Absent"
   num=""
   for num in range(ll, uu + 1):
     nums=str(num)
     if nums in lst:
-      cur.execute("INSERT INTO Attendence (Class_name,Rollno , Attendence) VALUES (%s, %s, %s)", (ca, nums, pr))
+      cur.execute("INSERT INTO Attendence (Class_name,Rollno , Attendence,date) VALUES (%s, %s, %s,%s)", (ca, nums, pr,NOW()))
       print(nums,'present')
     else:
-      cur.execute("INSERT INTO Attendence (Class_name, Rollno, Attendence) VALUES (%s, %s, %s)", (ca,nums, aa))
+      cur.execute("INSERT INTO Attendence (Class_name, Rollno, Attendence,date) VALUES (%s, %s, %s)", (ca,nums, aa,NOW()))
       mysql.connection.commit()
       print(nums,'absent')
     #return render_template('edittask.html', Class=t)
@@ -126,11 +126,24 @@ def edit_taskk():
   
 @app.route('/res', methods=['GET','POST'])
 def res():
+  a="present"
   RollNo=request.form.get('RollNo')
   print(RollNo)
   cl=request.form.get('task_name1')
   cur = mysql.connection.cursor()
   cur.execute("SELECT * FROM Attendence where (RollNo=%s AND Class_Name=%s)",(RollNo,cl))
+  total=cur.execute("SELECT COUNT(*) FROM Attendence  WHERE (Rollno=%s AND Class_name=%s)",(Rollno,cl))
+  total=cur.fetchone()
+  p=cur.execute("SELECT COUNT(*) FROM Attendence WHERE (Attendence=%s AND Rollno=%s AND Class_name=%s)",(a,rl,ca))
+  p=cur.fetchone()
+  q=p[0]
+  q=int(q)
+  print(q)
+  t=total[0]
+  t=int(t)
+  print(t)
+  per=q*100/t
+  print(per)
   mysql.connection.commit()
   tt=cur.fetchall()
   return render_template("attend.html",det=tt)
