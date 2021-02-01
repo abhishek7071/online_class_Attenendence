@@ -143,7 +143,10 @@ def res():
   t=total[0]
   t=int(t)
   print(t)
-  per=q*100/t
+  if t==0:
+    per=0
+  else:
+    per=q*100/t
   print(per)
   mysql.connection.commit()
   tt=cur.fetchall()
