@@ -124,18 +124,17 @@ def edit_taskk():
   #tt=cur.fetchall()
   #return render_template('attend.html')
   
-@app.route('/showw')
+@app.route('/showw', methods=['POST']))
 def showw():
-  if request.method == "POST":
-    RollNo=request.form.get('RollNo')
-    print(RollNo)
-    cl=request.form.get('task_name1')
-    cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM Attendence where (RollNo=%s AND Class_Name=%s)",(RollNo,cl))
-    mysql.connection.commit()
-    tt=cur.fetchall()
-    return render_template('attend.html',det=tt)
-  return redirect(url_for('showw'))                 
+  RollNo=request.form.get('RollNo')
+  print(RollNo)
+  cl=request.form.get('task_name1')
+  cur = mysql.connection.cursor()
+  cur.execute("SELECT * FROM Attendence where (RollNo=%s AND Class_Name=%s)",(RollNo,cl))
+  mysql.connection.commit()
+  tt=cur.fetchall()
+  return render_template('attend.html',det=tt)
+  #return redirect(url_for('showw'))                 
 @app.route('/edit_task')
 def edit_task():
   cur = mysql.connection.cursor()
