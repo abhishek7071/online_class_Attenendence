@@ -133,6 +133,7 @@ def res():
   cl=request.form.get('task_name1')
   cur = mysql.connection.cursor()
   cur.execute("SELECT * FROM Attendence where (RollNo=%s AND Class_Name=%s)",(RollNo,cl))
+  tt=cur.fetchall()
   total=cur.execute("SELECT COUNT(*) FROM Attendence  WHERE (Rollno=%s AND Class_name=%s)",(RollNo,cl))
   total=cur.fetchone()
   p=cur.execute("SELECT COUNT(*) FROM Attendence WHERE (Attendence=%s AND Rollno=%s AND Class_name=%s)",(a,RollNo,cl))
@@ -149,7 +150,7 @@ def res():
     per=q*100/t
   print(per)
   #mysql.connection.commit()
-  tt=cur.fetchall()
+  #tt=cur.fetchall()
   return render_template("attend.html",det=tt,per=per,q=q,t=t)
   #return redirect(url_for('showw'))                 
 @app.route('/edit_task')
