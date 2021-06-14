@@ -29,9 +29,9 @@ from time import sleep
 app = Flask(__name__)
 app.secret_key = 'gryg56hjfejjffd7i'                    
 app.config['MYSQL_HOST'] = 'remotemysql.com'
-app.config['MYSQL_USER'] = '2AaJAJad6N'
-app.config['MYSQL_PASSWORD'] = 'ev2z8wK0e8'
-app.config['MYSQL_DB'] = '2AaJAJad6N'                   
+app.config['MYSQL_USER'] = 'XuQfP6V8WJ'
+app.config['MYSQL_PASSWORD'] = 'uYEVTADtgZ'
+app.config['MYSQL_DB'] = 'XuQfP6V8WJ'                   
 mysql = MySQL(app)
 @app.route('/')
 @app.route('/get_tasks')
