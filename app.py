@@ -70,7 +70,7 @@ def edit_taskk():
   time.sleep(2)
   driver.find_element_by_xpath('//*[@id="smartJoinButton"]').click()
   time.sleep(2)
-  driver.switch_to.frame("pbui_iframe")
+  driver.switch_to.frame("iframe_new_web_header")
   driver.find_element_by_xpath('//input[@type="text"]').send_keys(gmail_name)
   driver.find_element_by_xpath("//input[@placeholder='Email address']").send_keys(gmail_id)
   driver.find_element_by_xpath("//button[@title='Next']").click()
